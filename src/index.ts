@@ -1,7 +1,7 @@
 import { ResolveStrategy, Autoinject, IContainer, DI, Injectable } from "@spinajs/di";
 import { ClassInfo, ListFromFiles } from "@spinajs/reflection";
 import { Configuration } from "@spinajs/configuration";
-import { ArgumentException } from "@spinajs/exceptions";
+import { InvalidArgument } from "@spinajs/exceptions";
 
 import { ICliCommand, CliDescriptor } from "./interfaces";
 import { CLI_DESCRIPTOR_SYMBOL } from "./decorators";
@@ -77,7 +77,7 @@ export class FrameworkCliModule extends CliModule {
      */
     public async get(name: string): Promise<ICliCommand> {
         if (!name) {
-            throw new ArgumentException(`parameter name is null or empty`);
+            throw new InvalidArgument(`parameter name is null or empty`);
         }
 
         const command = this.Commands.find(c => c.name === name);
