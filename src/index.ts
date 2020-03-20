@@ -1,4 +1,4 @@
-import { ResolveStrategy, Autoinject, IContainer, DI, Injectable } from "@spinajs/di";
+import { SyncModule, Autoinject, IContainer, DI, Injectable } from "@spinajs/di";
 import { ClassInfo, ListFromFiles } from "@spinajs/reflection";
 import { Configuration } from "@spinajs/configuration";
 import { InvalidArgument } from "@spinajs/exceptions";
@@ -19,7 +19,7 @@ export abstract class CliBase<T> implements ICliCommand {
 }
 
 
-export abstract class CliModule extends ResolveStrategy {
+export abstract class CliModule extends SyncModule {
     /**
      * Avaible commands ready to run
      */
