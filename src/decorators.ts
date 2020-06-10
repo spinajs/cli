@@ -58,8 +58,8 @@ export function Cli(name: string, description: string) {
  * @example usage
  * ```javascript
  * @Cli("spine:dosmth","Something to do")
- * @CliOption("-o, --option1","Some option")
- * @CliOption("-o2, --option2 [value]","Some optional value")
+ * @Option("-o, --option1","Some option")
+ * @Option("-o2, --option2 [value]","Some optional value")
  * export class SmthToDoCommand implements ICliCommand{
  *  //.....
  *
@@ -69,7 +69,7 @@ export function Cli(name: string, description: string) {
  * }
  * ```
  */
-export function CliOption(params: string, description: string) {
+export function Option(params: string, description: string, required: boolean = false) {
     return (target: any) => {
         _cli(target);
 
@@ -78,6 +78,7 @@ export function CliOption(params: string, description: string) {
         descriptor.options.push({
             Description: description,
             Params: params,
+            Required: required
         });
     };
 }

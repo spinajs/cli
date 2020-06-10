@@ -1,6 +1,6 @@
 {
   "name": "@spinajs/cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "framework cli module",
   "main": "lib/index.js",
   "private": false,
@@ -37,11 +37,13 @@
   },
   "homepage": "https://github.com/spinajs/cli#readme",
   "dependencies": {
-    "@spinajs/configuration": "^1.0.5",
-    "@spinajs/di": "^1.0.12",
+    "@spinajs/configuration": "^1.0.7",
+    "@spinajs/di": "^1.0.14",
     "@spinajs/exceptions": "^1.0.0",
     "@spinajs/reflection": "^1.0.4",
-    "commander": "^2.20.0",
+    "@spinajs/log": "^1.0.5",
+
+    "commander": "^5.1.0",
     "glob": "^7.1.4",
     "lodash": "^4.17.14"
   },

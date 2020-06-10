@@ -23,6 +23,11 @@ export interface ICliOption {
      * Description for option, used in option help.
      */
     Description: string;
+
+    /**
+     * Is option required
+     */
+    Required : boolean;
 }
 
 
@@ -48,12 +53,12 @@ export interface ICliCommand {
     /**
      * Command name
      */
-    name: string;
+    Name: string;
 
     /**
      * This function is executed by cli. Do command stuff here.
      */
-    execute: (...args: any[]) => void;
+    execute: (...args: any[]) => Promise<number>;
 }
 
 /**
