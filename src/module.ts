@@ -40,7 +40,7 @@ export class FrameworkCliModule extends CliModule {
      * Avaible commands ready to run
      */
 
-    @ListFromFiles("/**/*.{ts,js}", "system.dirs.commands")
+    @ListFromFiles("/**/!(*.d).{ts,js}", "system.dirs.commands")
     public Commands: Array<ClassInfo<ICliCommand>>;
 
     /**
