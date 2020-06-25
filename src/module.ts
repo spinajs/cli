@@ -102,6 +102,10 @@ export class FrameworkCliModule extends CliModule {
         const self = this;
         this.Container = container;
 
+        for(const entry of this.Config.get<[]>("cli.di.registry")){
+            this.Container.register((entry as any).type).as((entry as any).as);
+        }
+
         this.Commander.version(`Spinajs version: ${this.Config.get('system.version', 'UNKNOWN')}`);
 
         this.Commands.forEach(c => {
