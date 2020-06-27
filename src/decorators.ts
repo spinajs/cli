@@ -1,13 +1,12 @@
-import { CliDescriptor } from "./interfaces";
+import { CliDescriptor } from './interfaces';
 
 export const CLI_DESCRIPTOR_SYMBOL = Symbol.for('CLI_DESCRIPTOR');
 
 function _cli(target: any) {
-    if (target[CLI_DESCRIPTOR_SYMBOL] === undefined) {
-        target[CLI_DESCRIPTOR_SYMBOL] = new CliDescriptor();
-    }
+  if (target[CLI_DESCRIPTOR_SYMBOL] === undefined) {
+    target[CLI_DESCRIPTOR_SYMBOL] = new CliDescriptor();
+  }
 }
-
 
 /**
  * decorator used to mark class as cli command.
@@ -27,14 +26,12 @@ function _cli(target: any) {
  *
  */
 export function Cli(name: string, description: string) {
-    return (target: any) => {
+  return (target: any) => {
+    _cli(target);
 
-        _cli(target);
-
-
-        target[CLI_DESCRIPTOR_SYMBOL].name = name;
-        target[CLI_DESCRIPTOR_SYMBOL].description = description;
-    };
+    target[CLI_DESCRIPTOR_SYMBOL].name = name;
+    target[CLI_DESCRIPTOR_SYMBOL].description = description;
+  };
 }
 
 /**
@@ -70,15 +67,15 @@ export function Cli(name: string, description: string) {
  * ```
  */
 export function Option(params: string, description: string, required: boolean = false) {
-    return (target: any) => {
-        _cli(target);
+  return (target: any) => {
+    _cli(target);
 
-        const descriptor = target[CLI_DESCRIPTOR_SYMBOL] as CliDescriptor;
+    const descriptor = target[CLI_DESCRIPTOR_SYMBOL] as CliDescriptor;
 
-        descriptor.options.push({
-            Description: description,
-            Params: params,
-            Required: required
-        });
-    };
+    descriptor.options.push({
+      Description: description,
+      Params: params,
+      Required: required,
+    });
+  };
 }

@@ -1,84 +1,81 @@
-
 /**
  * Cli option description. Its passed as command arguments
  */
 export interface ICliOption {
-    /**
-     * Param definition.
-     * @see commander params definition examples
-     *
-     * @example
-     * ```
-     *  -s, --string // for normal value eg. string
-     *  -i, --integer <n> // for integers
-     *  -f, --float <n> // for floats
-     *  -r, --range <a>..<b> // for range
-     *  -l, --list <items> // for list
-     *  -o, --optional [value] // for optional value
-     * ```
-     */
-    Params: string;
+  /**
+   * Param definition.
+   * @see commander params definition examples
+   *
+   * @example
+   * ```
+   *  -s, --string // for normal value eg. string
+   *  -i, --integer <n> // for integers
+   *  -f, --float <n> // for floats
+   *  -r, --range <a>..<b> // for range
+   *  -l, --list <items> // for list
+   *  -o, --optional [value] // for optional value
+   * ```
+   */
+  Params: string;
 
-    /**
-     * Description for option, used in option help.
-     */
-    Description: string;
+  /**
+   * Description for option, used in option help.
+   */
+  Description: string;
 
-    /**
-     * Is option required
-     */
-    Required : boolean;
+  /**
+   * Is option required
+   */
+  Required: boolean;
 }
-
 
 /**
  * Cli argument description
  */
 export interface ICliArgument {
-    /**
-     * Cli option eg.  -s, --string
-     */
-    Option: string;
+  /**
+   * Cli option eg.  -s, --string
+   */
+  Option: string;
 
-    /**
-     * Argument description used in help
-     */
-    Description: string;
+  /**
+   * Argument description used in help
+   */
+  Description: string;
 }
 
 /**
  * Cli command interface declaration.
  */
 export interface ICliCommand {
-    /**
-     * Command name
-     */
-    Name: string;
+  /**
+   * Command name
+   */
+  Name: string;
 
-    /**
-     * This function is executed by cli. Do command stuff here.
-     */
-    execute: (...args: any[]) => Promise<number>;
+  /**
+   * This function is executed by cli. Do command stuff here.
+   */
+  execute: (...args: any[]) => Promise<number>;
 }
 
 /**
  * Internall cli command descriptor. Describes command options, name & help
  */
 export class CliDescriptor {
-    /**
-     * Name of command eg. test:cli
-     */
-    public name: string = '';
+  /**
+   * Name of command eg. test:cli
+   */
+  public name: string = '';
 
-    /**
-     * Command general description, used when displaying help
-     */
-    public description: string = '';
+  /**
+   * Command general description, used when displaying help
+   */
+  public description: string = '';
 
-    /**
-     * Cli commands options
-     * @see CliOption
-     */
-    public options: ICliOption[] = [];
+  /**
+   * Cli commands options
+   * @see CliOption
+   */
+  public options: ICliOption[] = [];
 }
-

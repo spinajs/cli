@@ -1,7 +1,5 @@
 module.exports.cli = {
-    di:{ 
-        registry: [
-            
-        ]
-    }
-}
+  di: {
+    registry: [],
+  },
+};
