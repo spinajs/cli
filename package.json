@@ -1,6 +1,6 @@
 {
   "name": "@spinajs/cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "framework cli module",
   "main": "lib/index.js",
   "private": false,
