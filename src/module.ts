@@ -100,7 +100,7 @@ export class FrameworkCliModule extends CliModule {
     const self = this;
     this.Container = container;
 
-    for (const entry of this.Config.get<[]>('cli.di.registry')) {
+    for (const entry of this.Config.get<[]>('cli.di.registry', [])) {
       this.Container.register((entry as any).type).as((entry as any).as);
     }
 
