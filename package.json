@@ -1,11 +1,11 @@
 {
   "name": "@spinajs/cli",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "framework cli module",
   "main": "lib/index.js",
   "private": false,
   "bin": {
-    "spinajs": "node ./bin/index.js"
+    "spinajs": "node lib/bin/index.js"
   },
   "scripts": {
     "test": "ts-mocha -p tsconfig.json test/**/*.test.ts",
