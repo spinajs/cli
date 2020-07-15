@@ -1,7 +1,7 @@
 import { DI } from '@spinajs/di';
 import { Configuration, FrameworkConfiguration } from '@spinajs/configuration';
 import { SpinaJsDefaultLog, LogModule } from '@spinajs/log';
-import { FrameworkCliModule } from '../module';
+import { FrameworkCliModule } from './index';
 
 async function start_cli() {
   DI.register(FrameworkConfiguration).as(Configuration);
